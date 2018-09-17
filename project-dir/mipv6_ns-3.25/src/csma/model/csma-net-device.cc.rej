@@ -1,0 +1,34 @@
+--- src/csma/model/csma-net-device.cc
++++ src/csma/model/csma-net-device.cc
+@@ -794,6 +794,17 @@
+       packetType = PACKET_OTHERHOST;
+     }
+ 
++  //
++  // For all kinds of packetType we receive, we pass the original copy of the
++  // packet to the OpenFlow receive callback. Nothing more is supposed to
++  // happen when this device is configure as OpenFlow port, so we end here.
++  //
++  if (!m_openFlowRxCallback.IsNull ())
++    {
++      m_openFlowRxCallback (this, originalPacket, protocol, header.GetSource (), header.GetDestination (), packetType);
++      return;
++    }
++
+   // 
+   // For all kinds of packetType we receive, we hit the promiscuous sniffer
+   // hook and pass a copy up to the promiscuous callback.  Pass a copy to 
+@@ -1019,6 +1030,13 @@
+ }
+ 
+ void
++CsmaNetDevice::SetOpenFlowReceiveCallback (NetDevice::PromiscReceiveCallback cb)
++{
++  NS_LOG_FUNCTION (&cb);
++  m_openFlowRxCallback = cb;
++}
++
++void
+ CsmaNetDevice::SetReceiveCallback (NetDevice::ReceiveCallback cb)
+ {
+   NS_LOG_FUNCTION (&cb);

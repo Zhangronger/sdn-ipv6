@@ -1,0 +1,10 @@
+--- doc/models/source/index.rst
++++ doc/models/source/index.rst
+@@ -40,6 +40,7 @@
+    distributed
+    mobility
+    network
++   ofswitch13
+    olsr
+    openflow-switch
+    point-to-point

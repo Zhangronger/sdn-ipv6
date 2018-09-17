@@ -1,0 +1,29 @@
+--- src/csma/model/csma-net-device.h
++++ src/csma/model/csma-net-device.h
+@@ -307,6 +307,14 @@
+   virtual bool NeedsArp (void) const;
+ 
+   /**
++   * Set the callback to be used to notify the OpenFlow device when a packet
++   * has been received.
++   *
++   * \param cb The callback.
++   */
++  virtual void SetOpenFlowReceiveCallback (NetDevice::PromiscReceiveCallback cb);
++  
++  /**
+    * Set the callback to be used to notify higher layers when a packet has been
+    * received.
+    *
+@@ -689,6 +697,11 @@
+   Mac48Address m_address;
+ 
+   /**
++   * The callback used to notify OpenFlow device that a packet has been received.
++   */
++  NetDevice::PromiscReceiveCallback m_openFlowRxCallback;
++  
++  /**
+    * The callback used to notify higher layers that a packet has been received.
+    */
+   NetDevice::ReceiveCallback m_rxCallback;

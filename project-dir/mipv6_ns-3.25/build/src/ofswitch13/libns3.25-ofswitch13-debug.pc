@@ -1,0 +1,10 @@
+prefix=/usr/local
+libdir=/usr/local/lib
+includedir=/usr/local/include/ns3.25
+
+Name: libns3-ofswitch13
+Description: ns-3 module ns3-ofswitch13
+Version: 3.25
+Libs: -L${libdir} -Wl,-Bdynamic -lns3.25-ofswitch13-debug -L/home/rosey/ofsoftswitch13/udatapath -ldl -lnbee -lns3ofswitch13
+Cflags: -I${includedir} -DNS3_OFSWITCH13 -I/home/rosey/ofsoftswitch13 -I/home/rosey/ofsoftswitch13/include -I/home/rosey/ofsoftswitch13/lib -I/home/rosey/ofsoftswitch13/oflib -I/home/rosey/ofsoftswitch13/oflib-exp -I/home/rosey/ofsoftswitch13/secchan -I/home/rosey/ofsoftswitch13/udatapath
+Requires: libns3.25-internet-debug libns3.25-bridge-debug libns3.25-mpi-debug libns3.25-network-debug libns3.25-core-debug libns3.25-stats-debug libns3.25-csma-debug libns3.25-point-to-point-debug libns3.25-applications-debug

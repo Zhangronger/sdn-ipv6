@@ -23,7 +23,7 @@
 #include "ns3/address.h"
 #include "mih-tlv.h"
 
-NS_LOG_COMPONENT_DEFINE ("Tlv");
+NS_LOG_COMPONENT_DEFINE ("mih-Tlv");
 
 namespace ns3 {
   namespace mih {
